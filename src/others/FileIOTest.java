@@ -5,6 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileIOTest {
+
+    FileIOTest() {
+    }
+
+
     public static void main(String[] args) {
         String path = " ";
         File file = new File(path);
@@ -24,4 +29,6 @@ public class FileIOTest {
             e.printStackTrace();
         }
     }
+
+
 }

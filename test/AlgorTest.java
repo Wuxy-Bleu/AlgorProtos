@@ -5,7 +5,7 @@ import utils.ArrUtils;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Test {
+public class AlgorTest {
 
 
     //这里对于泛型的运用越加的熟练了  将这个测试用的MyDate类作为内部类，而且还是public的内部类
@@ -62,7 +62,7 @@ public class Test {
 
     private Double[] doubleRandomArr = new Double[3];
 
-    public Test() {
+    public AlgorTest() {
 /*        //这个玩意有没有直接生成数组，还需要搞个构造器编译赋值
         //可以搞个工具类
         for (Double ele : doubleRandomArr) {

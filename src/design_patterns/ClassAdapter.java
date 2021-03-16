@@ -23,3 +23,4 @@ class MainAdapter{
 
     }
 }
+//这代码很简单，但是没搞懂 想干嘛
