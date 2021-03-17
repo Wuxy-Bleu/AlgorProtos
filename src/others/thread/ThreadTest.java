@@ -1,4 +1,4 @@
-package others;
+package others.thread;
 
 public class ThreadTest implements Runnable {
 

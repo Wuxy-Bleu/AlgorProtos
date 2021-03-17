@@ -1,7 +1,12 @@
+import org.apache.logging.log4j.core.util.JsonUtils;
 import org.junit.Test;
 import others.FileIOTest;
 
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -149,7 +154,7 @@ public class BasicTest {
         }
 
         @Override
-        public void run() {
+        public synchronized void run() {
             while (ticketNums > 0) {
 
 //                try {
@@ -167,9 +172,64 @@ public class BasicTest {
     public void testThread3() {
         SellTickets sellTickets = new SellTickets(30);
 
+        Thread thread = new Thread();
+
         new Thread(sellTickets, "小明").start();
         new Thread(sellTickets, "小红").start();
         new Thread(sellTickets, "小蓝").start();
+
+
+        Thread.State state = thread.getState();
+
+    }
+
+    DateFormat dateFormat;
+
+    @Test
+    public void testDate() throws InterruptedException {
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 1000; i++) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(new Date().toString() + Thread.currentThread().getState().toString());
+                }
+            }
+        });
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 1000; i++) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()) + Thread.currentThread().getState().toString());
+                }
+            }
+        });
+//        thread1.start();
+//        thread1.join();
+
+        System.out.println("main");
+
+        new Thread(() -> {
+            System.out.println(Calendar.getInstance().get(Calendar.MINUTE));   //工厂模式
+        }).start();
+
+        new Thread(() -> {
+            System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(System.currentTimeMillis()).getTime() + 10000000));
+        }).start();
+
+        Thread.sleep(4000);
+
 
     }
 
