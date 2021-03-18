@@ -2,6 +2,7 @@ import org.apache.logging.log4j.core.util.JsonUtils;
 import org.junit.Test;
 import others.FileIOTest;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.FieldPosition;
@@ -10,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
 
-public class BasicTest {
+public class BasicTest implements Serializable {
 
     class Person implements Cloneable {
 
