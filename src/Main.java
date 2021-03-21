@@ -1,4 +1,4 @@
-import basicStructure.*;
+import BasicStructure.*;
 
 import java.util.HashMap;
 import java.util.Iterator;

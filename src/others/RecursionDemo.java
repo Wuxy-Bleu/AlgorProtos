@@ -1,7 +1,7 @@
 package others;
 
-import basicStructure.Stack;
-import basicStructure.StackArrImpl;
+import BasicStructure.Stack;
+import BasicStructure.StackArrImpl;
 import utils.SmallUtils;
 
 //写些简单的递归算法

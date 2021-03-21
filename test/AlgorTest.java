@@ -1,8 +1,7 @@
-import C2_sort.*;
-import leetcode.s27.RemoveElement;
+import Algorithm.C2_sort.*;
+import Leetcode.s27.RemoveElement;
 import utils.ArrUtils;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class AlgorTest {
