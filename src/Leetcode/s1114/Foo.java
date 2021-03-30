@@ -38,11 +38,24 @@ public class Foo {
         printThird.run();
     }
 
-    public class Print implements Runnable{
+    public static void main(String[] args) {
 
-        @Override
-        public void run() {
 
-        }
+        Foo foo = new Foo();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    foo.first(new Runnable() {
+                        @Override
+                        public void run() {
+                            System.out.println();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "a").start();
     }
 }

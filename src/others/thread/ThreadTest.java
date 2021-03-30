@@ -1,5 +1,8 @@
 package others.thread;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreadTest implements Runnable {
 
     private static int ticketNums = 10;
@@ -26,16 +29,35 @@ public class ThreadTest implements Runnable {
     }
 }
 
+class RunTask implements Runnable {
+
+    private int sharedNum = 0;
+
+    @Override
+    public void run(){
+        for (int i = 0; i < 1000; i++) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronized (this) {
+                System.out.println(String.format("thread %s 执行第 %s 次 sharedNum = %s",
+                        Thread.currentThread().getName(), i + 1, sharedNum++));
+            }
+        }
+    }
+}
+
 class ThreadMain {
     public static void main(String[] args) {
-        ThreadTest runnable = new ThreadTest(30);
-        new Thread(runnable, "david").start();
-        new Thread(runnable, "nacy").start();
-        new Thread(runnable, "mike").start();
 
-        new Thread(runnable, "john").start();
+        RunTask runTask = new RunTask();
+        for (int i = 0; i < 4; i++) {
+            new Thread(runTask, String.valueOf(i)).start();
+        }
 
-        System.out.println("nihao");
+        System.out.println("main thread 。。。。。。。。。。。。。。。。。。。。。。。。");
 
     }
 }

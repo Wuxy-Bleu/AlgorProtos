@@ -11,7 +11,7 @@ public class FileIOTest {
 
 
     public static void main(String[] args) {
-        String path = " ";
+        String path = "C:\\Users\\matte\\Documents\\WeChat Files\\wxid_cm14t62in8mp21\\FileStorage\\File\\2021-03\\jar";
         File file = new File(path);
         File[] arr = file.listFiles();
 

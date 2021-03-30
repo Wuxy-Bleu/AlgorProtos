@@ -1,8 +1,11 @@
 import Algorithm.C2_sort.*;
 import Leetcode.s27.RemoveElement;
+import org.junit.Test;
 import utils.ArrUtils;
 
 import java.util.Arrays;
+
+import static utils.SmallUtils.generateRandomArr;
 
 public class AlgorTest {
 
@@ -174,6 +177,70 @@ public class AlgorTest {
     public void test_isSorted() {
         Integer[] arr = {3, 2, 1};
         System.out.println(Sort.isSorted(arr));
+    }
+
+    @Test
+    public void testBasicSort() {
+        //快速过一下 基础的排序算法  选择 插入 冒泡 希尔 归并 快速
+//        int[] sort = new int[]{1, 34, 35, 12, 1, 457675, 21};
+        int[] sort  = generateRandomArr(30);
+        //选择排序
+/*        for (int i = 0; i < sort.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < sort.length; j++) {
+                if (sort[j] < sort[min])
+                    min = j;
+            }
+            int tmp = sort[i];
+            sort[i] = sort[min];
+            sort[min] = tmp;
+        }*/
+        //插入排序
+/*        for (int i = 1; i < sort.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (sort[j-1] > sort[j]) {
+                    //交换
+                    int tmp = sort[j-1];
+                    sort[j-1] = sort[j];
+                    sort[j] = tmp;
+                }
+            }
+        }*/
+        //冒泡排序
+/*        for (int i = 0; i < sort.length; i++) {
+            boolean isSorted = true;
+            for (int j = 0; j < sort.length - 1 - i; j++) {
+                if (sort[j + 1] < sort[j]) {
+                    int tmp = sort[j];
+                    sort[j] = sort[j + 1];
+                    sort[j + 1] = tmp;
+                    isSorted = false;
+                }
+            }
+            if (isSorted)
+                break;
+        }*/
+        //希尔排序
+/*        int h = 1;
+        while (3 * h < sort.length)
+            h = 3 * h + 1;
+        while (h > 0) {
+            for (int i = h; i < sort.length; i++) {
+                for (int j = i; j > 0 && j - h > 0 ; j -= h)
+                    if (sort[j] < sort[j - h]) {
+                        int tmp = sort[j];
+                        sort[j] = sort[j - h];
+                        sort[j - h] = tmp;
+                    }
+            }
+            h = h / 3;
+        }*/
+        System.out.println(Arrays.toString(sort));
+    }
+
+    @Test
+    public void searchTest(){
+
     }
 
 }

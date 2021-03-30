@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class SmallUtils {
 
     //得到一个int正整数的位数
@@ -11,12 +14,31 @@ public class SmallUtils {
         return nums + 1; /*再加一个个数位*/
     }
 
-/*    //从一个字符串中拿到所有的单个字符  没必要，java se存在相关方法
-    static public char[] getCharsFromString(String string) {
+    //根据字节将一个Int转为4个byte  熟悉位运算
+    public static byte[] int2byteArr(int n) {
+        byte[] res = new byte[4];
+        res[0] = (byte) (n >> 24);
+        res[1] = (byte) (n >> 16);
+        res[2] = (byte) (n >> 8);
+        res[3] = (byte) (n >> 0);
 
-    }*/
+        return res;
+    }
 
+    public static int[] generateRandomArr(int len) {
+        int[] res = new int[len];
+        Random random = new Random();
+        for (int i = 0; i < res.length; i++) {
+            res[i] = random.nextInt();
+        }
+        return res;
+    }
 
+    public static void main(String[] args) {
+        int2byteArr(-1);
+        int[] ints = generateRandomArr(20);
+        System.out.println(Arrays.toString(ints));
 
+    }
 
 }
