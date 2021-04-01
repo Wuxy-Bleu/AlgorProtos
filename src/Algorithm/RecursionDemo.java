@@ -1,4 +1,4 @@
-package others;
+package Algorithm;
 
 import BasicStructure.Stack;
 import BasicStructure.StackArrImpl;

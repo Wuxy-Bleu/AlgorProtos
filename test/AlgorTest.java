@@ -1,7 +1,6 @@
 import Algorithm.C2_sort.*;
 import Leetcode.s27.RemoveElement;
 import org.junit.Test;
-import utils.ArrUtils;
 
 import java.util.Arrays;
 
@@ -131,7 +130,6 @@ public class AlgorTest {
 
         Sort shellSort = new ShellSort();
         try {
-            ArrUtils.printArr(doubleRandomArr);
             shellSort.sortAscend(doubleRandomArr);
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -151,7 +149,6 @@ public class AlgorTest {
         Comparable[] merge = mergeSort.merge(
                 new Integer[]{1, 12, 4, 789, 2, 6, 4, 5, 5},
                 new Integer[]{2, 4, 5, 7, 8, 13243, 53});
-        ArrUtils.printArr(merge);
     }
 
     @org.junit.Test

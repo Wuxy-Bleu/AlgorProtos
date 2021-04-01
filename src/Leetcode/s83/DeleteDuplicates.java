@@ -9,11 +9,12 @@ public class DeleteDuplicates {
         //第一想到的就是遍历一遍咯
         ListNode nodeAfter;
         for (ListNode node = head; node != null && node.next != null; node = node.next) {
-            nodeAfter = node.next;
-            //这里如果是多个重复的就搞不定了......
-            if (node.val == nodeAfter.val)
-                //删除后一个
-                node.next = nodeAfter.next;
+            for (nodeAfter = node.next; nodeAfter != null; )
+                if (nodeAfter.val == node.val) {
+                    node.next = nodeAfter.next;
+                    nodeAfter = node.next;
+                } else
+                    break;
         }
         return head;
     }

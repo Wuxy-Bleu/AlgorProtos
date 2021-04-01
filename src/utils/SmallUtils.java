@@ -25,6 +25,7 @@ public class SmallUtils {
         return res;
     }
 
+    //生成一个随机数组，未排序
     public static int[] generateRandomArr(int len) {
         int[] res = new int[len];
         Random random = new Random();
